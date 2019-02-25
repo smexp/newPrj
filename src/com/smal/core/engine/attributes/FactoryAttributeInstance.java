@@ -15,5 +15,12 @@ public class FactoryAttributeInstance {
 
     }
 
+    public static int getTypeNumber (Object obj){
+        if (obj!=null && obj.getClass().getSimpleName().toUpperCase().equals("INTEGER")) {return 1;}
+        if (obj!=null && obj.getClass().getSimpleName().toUpperCase().equals("STRING")) {return 2;}
+        if (obj!=null && obj.getClass().getSimpleName().toUpperCase().equals("DATE")) {return 3;}
+        if (obj!=null && obj.getClass().getSimpleName().toUpperCase().equals("BOOLEAN")) {return 4;}
+        return -1;
+    }
 
 }

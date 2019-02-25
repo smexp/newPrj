@@ -28,10 +28,11 @@ public class NumberAttribute implements GeneralAttribute {
     }
 
     @Override
-    public void setValue(Object obj) throws MismatchingAttributeTypeException {
+    public boolean setValue(Object obj) throws MismatchingAttributeTypeException {
         if (obj.getClass().getSimpleName().equalsIgnoreCase("Integer"))
         {
             this.value = (Integer)obj;
+            return true;
         }
         else throw new MismatchingAttributeTypeException("ERROR by set attribute: ");
     }

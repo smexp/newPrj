@@ -1,7 +1,6 @@
 package com.smal.core.engine.attributes;
 
 import com.smal.core.engine.exeptions.MismatchingAttributeTypeException;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 public class BooleanAttribute implements GeneralAttribute {
     private String type;
@@ -29,10 +28,11 @@ public class BooleanAttribute implements GeneralAttribute {
     }
 
     @Override
-    public void setValue(Object obj) throws MismatchingAttributeTypeException {
+    public boolean setValue(Object obj) throws MismatchingAttributeTypeException {
         if (obj.getClass().getSimpleName().equalsIgnoreCase("Boolean"))
         {
             this.value = (Boolean) obj;
+            return true;
         }
         else throw new MismatchingAttributeTypeException("ERROR by set attribute: ");
     }

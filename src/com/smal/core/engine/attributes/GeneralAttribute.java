@@ -6,6 +6,6 @@ public interface GeneralAttribute {
 
     Object getValue();
     String getType();
-    void setValue(Object obj) throws MismatchingAttributeTypeException;
+    boolean setValue(Object obj) throws MismatchingAttributeTypeException;
     String toStringValue();
 }
