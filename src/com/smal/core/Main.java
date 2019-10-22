@@ -1,13 +1,11 @@
 package com.smal.core;
 
-import com.smal.core.engine.AttributeOrAlias;
 import com.smal.core.engine.CObject;
+import com.smal.core.engine.exeptions.InitDObjectIsNotFoundException;
 import com.smal.core.engine.exeptions.MismatchingAttributeTypeException;
+import com.smal.core.engine.methods.InitObjectsFromFileDirectory;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 public class Main {
 
@@ -76,7 +74,13 @@ public class Main {
 
         System.out.println("Time to check: "+time+" ns");
         */
+        //test file folder
+            InitObjectsFromFileDirectory objF= new InitObjectsFromFileDirectory("C:\\\\WORKS\\\\TEMP\\\\test");
 
+            try {
+                if (objF.readObjects().equalsIgnoreCase("success")){System.out.println("All objects were successfully loaded");} else {System.out.println("By loading was error occurred");}
+            }
+            catch (InitDObjectIsNotFoundException e){System.out.println(e.getLocalizedMessage());}
 
 
     }
